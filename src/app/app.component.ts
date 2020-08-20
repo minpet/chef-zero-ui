@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuLink } from './model/common/menuLink.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chef-zero-ui';
+  version = '1.0'
+  private links: MenuLink[] = [];
+  public selectedMenu: MenuLink = null;
+
+  constructor(private router: Router) {
+    this.links = [new MenuLink('Cookbooks', '/cookbooks')];
+  }
+
+  get menuLinks(): MenuLink[] {
+    return this.links;
+  }
+
+  changeMenu(menu: MenuLink) {
+    if (menu) {
+      this.selectedMenu = menu;
+      this.router.navigateByUrl(menu.target);
+    }
+  }
+
 }

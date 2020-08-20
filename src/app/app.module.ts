@@ -1,8 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
+import { CookBooksModule } from './cookbooks/cookbook.module';
+import { CookBooksListComponent } from './cookbooks/cookbooksList.component';
 import { AppComponent } from './app.component';
+
+const routes = RouterModule.forRoot([
+  {path: 'cookbooks', component: CookBooksListComponent},
+  {path: '**', component: CookBooksListComponent}
+]);
 
 @NgModule({
   declarations: [
@@ -10,7 +17,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    routes,
+    CookBooksModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
