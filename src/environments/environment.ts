@@ -2,11 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const host = 'localhost';
+
 export const environment = {
   production: false,
 
-
-  restCookbooksListBaseURL: 'http://chef-server.local:8889/cookbooks'
+  restCookbooksListBaseURL: `http://${host}:8889/cookbooks`,
+  restNodesListBaseURL: `http://${host}:8889/nodes`
 };
 
 /*

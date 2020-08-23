@@ -1,0 +1,10 @@
+<div class="text-center">
+ <div class="bg-secondary">Available Nodes:</div>
+ <div class="row">
+  <div class="col">
+    <button *ngFor="let n of nodes" class="btn btn-block" (click)="showDetails(n)">
+      {{ n.name }}
+    </button>
+  </div>
+ </div>
+</div>

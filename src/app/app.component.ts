@@ -13,7 +13,10 @@ export class AppComponent {
   public selectedMenu: MenuLink = null;
 
   constructor(private router: Router) {
-    this.links = [new MenuLink('Cookbooks', '/cookbooks')];
+    this.links = [
+      new MenuLink('Cookbooks', '/cookbooks'),
+      new MenuLink('Nodes', '/nodes')
+      ];
   }
 
   get menuLinks(): MenuLink[] {
