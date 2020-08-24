@@ -1,3 +1,3 @@
 export class Node {
-  constructor(){}
+  constructor(public name: string, public detailsUrl: string){}
 }

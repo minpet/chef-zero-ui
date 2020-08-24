@@ -17,10 +17,10 @@ export class CookBooksDataSource {
         Object.keys(response).map(cbName =>{
           var cdVersions: Version[] = [];
           let ver: any
-          for(ver in response[cbName].versions){
+          for(ver of response[cbName].versions){
             cdVersions.push(new Version(ver.version, ver.url))
           }
-          parsed.push(new CookBook(cbName, response[cbName].url, cdVersions));
+          parsed.push(new CookBook(cbName, cdVersions));
         })
 
         return parsed;

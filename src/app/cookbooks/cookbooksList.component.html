@@ -2,7 +2,7 @@
  <div class="bg-secondary">Available CookBooks:</div>
  <div class="row">
   <div class="col">
-    <button *ngFor="let cb of cookbooks" class="btn btn-block" (click)="showDetails(cb)">
+    <button *ngFor="let cb of cookbooks" class="btn btn-block" [routerLink]="['/cookBookDetails',cb.name]">
       {{ cb.name }}
     </button>
   </div>

@@ -22,7 +22,4 @@ export class CookBooksListComponent {
    return this._cookbooks;
  }
 
- showDetails(cb: CookBook){
-
- }
 }
