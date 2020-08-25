@@ -15,12 +15,7 @@ export class CookBooksDataSource {
       map(response => {
         var parsed : CookBook[] = []
         Object.keys(response).map(cbName =>{
-          var cdVersions: Version[] = [];
-          let ver: any
-          for(ver of response[cbName].versions){
-            cdVersions.push(new Version(ver.version, ver.url))
-          }
-          parsed.push(new CookBook(cbName, cdVersions));
+          parsed.push(new CookBook(cbName, response[cbName].url));
         })
 
         return parsed;
@@ -28,4 +23,16 @@ export class CookBooksDataSource {
     );
   }
 
+  getCookBookVersions(cb: CookBook): Observable<Version[]> {
+    return this.http.get<Object>(cb.url).pipe(
+      map(response => {
+        var cdVersions: Version[] = [];
+        let ver: any
+        for(ver of response[cb.name].versions){
+          cdVersions.push(new Version(ver.version, ver.url))
+        }
+        return cdVersions;
+      })
+    );
+  }
 }

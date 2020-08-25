@@ -19,9 +19,17 @@ export class CookBookDetailsComponent {
     this.cbDs.getCookBooks().subscribe(cbs => {
       cbs.forEach(cb => {
         if(cb.name == this.route.snapshot.params['cbName']){
+          if(cb.versions === undefined){
+            cb.versions = []
+            this.cbDs.getCookBookVersions(cb).subscribe(versions => {
+              versions.forEach(ver =>{
+                cb.versions.push(ver);
+              });
+              this._selectedVersionValue = cb.versions[0];
+              this.updateDetails(cb.versions[0]);
+            });
+          }
           this._selectedCookBook = cb;
-          this._selectedVersionValue = cb.versions[0];
-          this.updateDetails(cb.versions[0]);
         }
       });
     });
@@ -41,7 +49,7 @@ export class CookBookDetailsComponent {
 
   public changeSelectedVersion(versionName: string){
     this._selectedCookBook.versions.forEach(ver => {
-      if(ver.versionNumber == versionName){
+      if(ver.versionNumber === versionName){
         this._selectedVersionValue = ver;
         this.updateDetails(ver);
       }

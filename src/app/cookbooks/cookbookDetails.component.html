@@ -4,17 +4,35 @@
   <div class="col">Version:</div>
   <div class="col">
     <select class="form-control" [value]="selectedVersion.versionNumber"
-    (change)="changeSelectedVersion($event.target.value)" *ngIf="cookbook">
-     <option *ngFor="let ver of cookbook.versions" value="ver.versionNumber">{{ver.versionNumber}}</option>
+    (change)="changeSelectedVersion($event.target.value)" *ngIf="selectedVersion">
+     <option *ngFor="let ver of cookbook.versions" value="{{ver.versionNumber}}">{{ver.versionNumber}}</option>
     </select>
   </div>
  </div>
- <div class="row" *ngIf="selectedVersion">
-    <div class="row">
+ <div *ngIf="versionDetails">
+   <div class="row">
+      <div class="col">
+        Version Name
+      </div>
+      <div class="col-8">
+      {{ versionDetails.name }}
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
+        Short Description
+      </div>
+      <div class="col-8">
       {{ versionDetails.metadata.description }}
+      </div>
     </div>
     <div class="row">
+      <div class="col">
+        Long Description
+      </div>
+      <div class="col-8">
       {{ versionDetails.metadata.long_description }}
+      </div>
     </div>
  </div>
 </div>
