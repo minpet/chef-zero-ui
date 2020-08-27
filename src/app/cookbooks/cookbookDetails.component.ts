@@ -14,6 +14,7 @@ export class CookBookDetailsComponent {
   private _selectedCookBook: CookBook;
   private _selectedVersionValue: Version;
   private _versionDetails: VersionDetails;
+  private _collapseRecipes: boolean = true;
 
   constructor(private cbDs: CookBooksDataSource, private verDs: VersionDataSource, private route: ActivatedRoute){
     this.cbDs.getCookBooks().subscribe(cbs => {
@@ -59,6 +60,16 @@ export class CookBookDetailsComponent {
   private updateDetails(ver: Version){
     this.verDs.populateDetailsFromUrl(ver.url).subscribe(details => {
       this._versionDetails = details;
+      this._collapseRecipes = true;
     });
+  }
+
+  public toggleRecipes(){
+    this._collapseRecipes = !this._collapseRecipes;
+  }
+
+  public getCollapseClass(){
+    if(this._collapseRecipes) return "collapse"
+    return "collapse.show"
   }
 }

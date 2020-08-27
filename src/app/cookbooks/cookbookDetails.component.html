@@ -20,6 +20,19 @@
    </div>
    <div class="row">
       <div class="col">
+        Recipes
+      </div>
+      <div class="col-8">
+        <button id="showRecipesButton" class="btn-success" (click)="toggleRecipes()" >Toggle Recipes</button>
+        <div [className]="getCollapseClass()">
+          <div *ngFor="let recipe of versionDetails.recipes">
+            {{ recipe.name }}
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
         Short Description
       </div>
       <div class="col-8">
