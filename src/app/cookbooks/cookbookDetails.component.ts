@@ -5,6 +5,8 @@ import { VersionDetails } from './model/versionDetails.model';
 import { CookBooksDataSource } from './cookbooks.dataSource';
 import { VersionDataSource } from './version.dataSource';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { RecipesDataSource } from './recipes.datasource';
 
 @Component({
   templateUrl: './cookbookDetails.component.html'
@@ -15,8 +17,10 @@ export class CookBookDetailsComponent {
   private _selectedVersionValue: Version;
   private _versionDetails: VersionDetails;
   private _collapseRecipes: boolean = true;
+  private _recipeContent: string;
+  private _selectedRecipe;
 
-  constructor(private cbDs: CookBooksDataSource, private verDs: VersionDataSource, private route: ActivatedRoute){
+  constructor(private cbDs: CookBooksDataSource, private verDs: VersionDataSource, private route: ActivatedRoute, private modalService: NgbModal, private recipeDs: RecipesDataSource){
     this.cbDs.getCookBooks().subscribe(cbs => {
       cbs.forEach(cb => {
         if(cb.name == this.route.snapshot.params['cbName']){
@@ -71,5 +75,23 @@ export class CookBookDetailsComponent {
   public getCollapseClass(){
     if(this._collapseRecipes) return "collapse"
     return "collapse.show"
+  }
+
+  public open(content, recipe) {
+    this._selectedRecipe = recipe;
+    this.recipeDs.loadContents(recipe.url).subscribe(data => {
+      this._recipeContent = data;
+    });
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+
+    });
+  }
+
+  get selectedRecipe(){
+    return this._selectedRecipe;
+  }
+
+  get recipeContent(){
+    return this._recipeContent;
   }
 }
