@@ -4,6 +4,11 @@ pipeline {
  }
  agent any
  stages {
+  stage("Install depedencies"){
+   steps {
+     sh label: 'Install Dependencies', script: 'npm install'
+   }
+  }
   stage("Full Release"){
    when {
     branch 'master'
@@ -14,6 +19,9 @@ pipeline {
    }
   }
   stage("Artifact"){
+   when {
+    branch 'master'
+   }
    steps {
     archiveArtifacts artifacts: 'dist/chef-zero-ui/webapp.zip', onlyIfSuccessful: true
    }
