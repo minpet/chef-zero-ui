@@ -14,6 +14,7 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.links = [
+      new MenuLink('About', '/about'),
       new MenuLink('Cookbooks', '/cookbooks'),
       new MenuLink('Nodes', '/nodes')
       ];
