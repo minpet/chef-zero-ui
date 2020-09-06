@@ -3,7 +3,7 @@ import { Observable } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
 
 @Injectable()
-export class RecipesDataSource {
+export class FileContentsDataSource {
 
   constructor(private http: HttpClient){}
 

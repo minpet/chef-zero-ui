@@ -24,11 +24,41 @@
       </div>
       <div class="col-8">
         <button id="showRecipesButton" class="btn-success" (click)="toggleRecipes()" >Toggle Recipes</button>
-        <div [className]="getCollapseClass()">
+        <div [className]="getRecipesCollapseClass()">
           <div *ngFor="let recipe of versionDetails.recipes">
             {{ recipe.name }}
             <span></span>
-            <button id="showRecipeDetailsButton" class="btn-warning" (click)="open(mymodal, recipe)" ><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button id="showRecipeDetailsButton" class="btn-warning" (click)="open(mymodal, 'Recipe '+recipe.name, recipe.url)" ><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
+        Files
+      </div>
+      <div class="col-8">
+        <button id="showFilesButton" class="btn-success" (click)="toggleFiles()" >Toggle Files</button>
+        <div [className]="getFilesCollapseClass()">
+          <div *ngFor="let file of versionDetails.files">
+            {{ file.path }}
+            <span></span>
+            <button id="showFileDetailsButton" class="btn-warning" (click)="open(mymodal, 'File '+file.name, file.url)" ><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
+        Templates
+      </div>
+      <div class="col-8">
+        <button id="showFilesButton" class="btn-success" (click)="toggleTemplates()" >Toggle Templates</button>
+        <div [className]="getTemplatesCollapseClass()">
+          <div *ngFor="let template of versionDetails.templates">
+            {{ template.path }}
+            <span></span>
+            <button id="showFileDetailsButton" class="btn-warning" (click)="open(mymodal, 'Template '+template.name, template.url)" ><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
@@ -55,14 +85,14 @@
 
  <ng-template #mymodal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Contents of recipe <b>{{selectedRecipe.name}}</b></h4>
+    <h4 class="modal-title" id="modal-basic-title">Contents of <b>{{title}}</b></h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">×</span>
     </button>
   </div>
   <div class="modal-body">
     <pre>
-{{ recipeContent }}
+{{ content }}
     </pre>
   </div>
   <div class="modal-footer">

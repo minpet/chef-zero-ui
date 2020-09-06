@@ -7,11 +7,11 @@ import { CookBooksListComponent } from './cookbooksList.component'
 import { CookBookDetailsComponent } from './cookbookDetails.component'
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RecipesDataSource } from './recipes.datasource';
+import { FileContentsDataSource } from './fileContents.datasource';
 
 @NgModule({
   imports: [HttpClientModule, CommonModule, RouterModule, NgbModule],
-  providers: [CookBooksDataSource, VersionDataSource, RecipesDataSource],
+  providers: [CookBooksDataSource, VersionDataSource, FileContentsDataSource],
   declarations: [CookBooksListComponent, CookBookDetailsComponent]
 })
 export class CookBooksModule { }
