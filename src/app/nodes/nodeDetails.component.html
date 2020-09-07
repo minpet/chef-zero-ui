@@ -1,0 +1,63 @@
+<div class="text-center">
+ <div class="bg-secondary">Details of Node: <b *ngIf="node">{{ node.name }}</b></div>
+ <div class="row" *ngIf="node">
+      <div class="col">
+        Automatic LSB
+      </div>
+      <div class="col-8">
+        <button id="showLsbButton" class="btn-success" (click)="toggleLsb()" >Toggle LSB</button>
+        <div [className]="getLsbCollapseClass()">
+          <div class="row">
+            <div class="col">Id</div>
+            <div class="col">{{node.automatic.lsb.id}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Description</div>
+            <div class="col">{{node.automatic.lsb.description}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Release</div>
+            <div class="col">{{node.automatic.lsb.release}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Codename</div>
+            <div class="col">{{node.automatic.lsb.codename}}</div>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row" *ngIf="node">
+      <div class="col">
+        Automatic Kernel
+      </div>
+      <div class="col-8">
+        <button id="showKernelButton" class="btn-success" (click)="toggleKernel()" >Toggle Kernel Info</button>
+        <div [className]="getKernelCollapseClass()">
+          <div class="row">
+            <div class="col">Name</div>
+            <div class="col">{{node.automatic.kernel.name}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Release</div>
+            <div class="col">{{node.automatic.kernel.release}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Version</div>
+            <div class="col">{{node.automatic.kernel.version}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Machine</div>
+            <div class="col">{{node.automatic.kernel.machine}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Processor</div>
+            <div class="col">{{node.automatic.kernel.processor}}</div>
+          </div>
+          <div class="row">
+            <div class="col">OS</div>
+            <div class="col">{{node.automatic.kernel.os}}</div>
+          </div>
+        </div>
+      </div>
+   </div>
+</div>
