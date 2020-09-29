@@ -60,4 +60,130 @@
         </div>
       </div>
    </div>
+   <div class="row" *ngIf="node">
+      <div class="col">
+        Memory
+      </div>
+      <div class="col-8">
+        <button id="showMemoryButton" class="btn-success" (click)="toggleMemory()" >Toggle Memory</button>
+        <div [className]="getMemoryCollapseClass()">
+          <div class="row">
+            <div class="col">Swap - cached</div>
+            <div class="col">{{node.automatic.memory.swap.cached}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Swap - total</div>
+            <div class="col">{{node.automatic.memory.swap.total}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Swap - free</div>
+            <div class="col">{{node.automatic.memory.swap.free}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Directmap - 4k</div>
+            <div class="col">{{node.automatic.memory.directmap.fourK}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Directmap - 2M</div>
+            <div class="col">{{node.automatic.memory.directmap.twoM}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Total</div>
+            <div class="col">{{node.automatic.memory.total}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Free</div>
+            <div class="col">{{node.automatic.memory.free}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Available</div>
+            <div class="col">{{node.automatic.memory.available}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Buffers</div>
+            <div class="col">{{node.automatic.memory.buffers}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Cached</div>
+            <div class="col">{{node.automatic.memory.cached}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Active</div>
+            <div class="col">{{node.automatic.memory.active}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Inactive</div>
+            <div class="col">{{node.automatic.memory.inactive}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Dirty</div>
+            <div class="col">{{node.automatic.memory.dirty}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Writeback</div>
+            <div class="col">{{node.automatic.memory.writeback}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Anon Pages</div>
+            <div class="col">{{node.automatic.memory.anon_pages}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Mapped</div>
+            <div class="col">{{node.automatic.memory.mapped}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Slab</div>
+            <div class="col">{{node.automatic.memory.slab}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Slab Reclaimable</div>
+            <div class="col">{{node.automatic.memory.slab_reclaimable}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Slab Unreclaim</div>
+            <div class="col">{{node.automatic.memory.slab_unreclaim}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Page Tables</div>
+            <div class="col">{{node.automatic.memory.page_tables}}</div>
+          </div>
+          <div class="row">
+            <div class="col">NFS Unstable</div>
+            <div class="col">{{node.automatic.memory.nfs_unstable}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Bounce</div>
+            <div class="col">{{node.automatic.memory.bounce}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Commit Limit</div>
+            <div class="col">{{node.automatic.memory.commit_limit}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Commited As</div>
+            <div class="col">{{node.automatic.memory.committed_as}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Vmalloc Total</div>
+            <div class="col">{{node.automatic.memory.vmalloc_total}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Vmalloc Used</div>
+            <div class="col">{{node.automatic.memory.vmalloc_used}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Vmalloc Chunk</div>
+            <div class="col">{{node.automatic.memory.vmalloc_chunk}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Hugepage Size</div>
+            <div class="col">{{node.automatic.memory.hugepage_size}}</div>
+          </div>
+          <div class="row">
+            <div class="col">HugeTlb</div>
+            <div class="col">{{node.automatic.memory.hugetlb}}</div>
+          </div>
+        </div>
+      </div>
+   </div>
 </div>

@@ -11,6 +11,7 @@ export class NodeDetailsComponent {
   private _selectedNode: NodeDetails;
   private _collapseLsb: boolean = true;
   private _collapseKernel: boolean = true;
+  private _collapseMemory: boolean = true;
 
   constructor(private nodesDs: NodesDataSource, private route: ActivatedRoute){
     this.nodesDs.getNodes().subscribe(nodes => {
@@ -43,6 +44,15 @@ export class NodeDetailsComponent {
 
   public getKernelCollapseClass(){
     if(this._collapseKernel) return "collapse"
+    return "collapse.show"
+  }
+
+  public toggleMemory(){
+    this._collapseMemory = !this._collapseMemory;
+  }
+
+  public getMemoryCollapseClass(){
+    if(this._collapseMemory) return "collapse"
     return "collapse.show"
   }
 }

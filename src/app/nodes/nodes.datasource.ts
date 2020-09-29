@@ -25,6 +25,16 @@ export class NodesDataSource {
   }
 
   getNodeDetails(url: string): Observable<NodeDetails>{
-    return this.http.get<NodeDetails>(url);
+    return this.http.get(url, {responseType:'text'}).pipe(
+      map(response => {
+        let details : NodeDetails = JSON.parse(response)
+        let obj = JSON.parse(response)
+
+        // manually add fields that do not conform to javascript object
+        details.automatic.memory.directmap.fourK = obj.automatic.memory.directmap['4k']
+        details.automatic.memory.directmap.twoM = obj.automatic.memory.directmap['2M']
+        return details;
+      })
+    );
   }
 }
