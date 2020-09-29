@@ -13,6 +13,8 @@ import { NodesModule } from './nodes/nodes.module';
 import { NodesListComponent } from './nodes/nodesList.component';
 import { NodeDetailsComponent } from './nodes/nodeDetails.component';
 
+import { VersionDataSource } from './version/version.datasource';
+
 import { AppComponent } from './app.component';
 
 const routes = RouterModule.forRoot([
@@ -35,7 +37,7 @@ const routes = RouterModule.forRoot([
     CookBooksModule,
     NodesModule
   ],
-  providers: [],
+  providers: [VersionDataSource],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
