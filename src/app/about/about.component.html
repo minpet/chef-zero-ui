@@ -1,13 +1,41 @@
 <h1>About</h1>
 
 <h2>Overview</h2>
+<h3>Purpose</h3>
 <p>
+  Chef server is a storage of cookbooks and recipes for chef client, which automates infrastructure deployment and prevents system configureation drift
 </p>
+<h3>Connections</h3>
+<ul>
+  <li>
+    Port 8443: HTTPS for angular frontend
+  </li>
+  <li>
+    Port 8889: HTTPS for chef-zero backend
+  </li>
+  <li>
+    Port 22: SSH
+  </li>
+</ul>
+
 
 <h2>Bootstraping new nodes</h2>
 <p>
   After SSH to this server, go to <b>/home/pi/chef-nodes</b>, there create a new directory for the node you want to bootstrap, copy a file from an existing folder, make necessary changes to it.
 </p>
 <p>
-  What is needed on the new node is open SSH port (22) and a sudo access
+  <b class="text-danger">What is needed on the new node is open SSH port (22) and a sudo access</b>
+</p>
+
+<h2>Administration</h2>
+<h3>Backend binaries</h3>
+<p>
+  Backend binaries are a ruby project chef-zero from github, so it is a good idea to perform <b>git pull</b> on master branch every once in a while. The binaries location is <b>/home/pi/git/chef-zero</b>
+</p>
+<p>
+  Web server is a standard nginx installation
+</p>
+<h3>Startup</h3>
+<p>
+  Startup script that contains the command for starting up the chef-zero backend is in <b>/etc/rc.local</b> and the web server is NGINX with configuration located in <b>/etc/nginx</b>
 </p>
