@@ -33,7 +33,7 @@
         </div>
       </div>
    </div>
-   <div class="row">
+   <div class="row" *ngIf="versionDetails.files && versionDetails.files.length > 0">
       <div class="col">
         Files
       </div>
@@ -48,12 +48,27 @@
         </div>
       </div>
    </div>
-   <div class="row">
+   <div class="row" *ngIf="versionDetails.root_files && versionDetails.root_files.length > 0">
+      <div class="col">
+        Root Files
+      </div>
+      <div class="col-8">
+        <button id="showRootFilesButton" class="btn-success" (click)="toggleRootFiles()" >Toggle Root Files</button>
+        <div [className]="getRootFilesCollapseClass()">
+          <div *ngFor="let file of versionDetails.root_files">
+            {{ file.path }}
+            <span></span>
+            <button id="showFileDetailsButton" class="btn-warning" (click)="open(mymodal, 'File '+file.name, file.url)" ><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row" *ngIf="versionDetails.templates && versionDetails.templates.length > 0">
       <div class="col">
         Templates
       </div>
       <div class="col-8">
-        <button id="showFilesButton" class="btn-success" (click)="toggleTemplates()" >Toggle Templates</button>
+        <button id="showTemplatesButton" class="btn-success" (click)="toggleTemplates()" >Toggle Templates</button>
         <div [className]="getTemplatesCollapseClass()">
           <div *ngFor="let template of versionDetails.templates">
             {{ template.path }}

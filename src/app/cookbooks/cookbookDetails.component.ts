@@ -18,6 +18,7 @@ export class CookBookDetailsComponent {
   private _versionDetails: VersionDetails;
   private _collapseRecipes: boolean = true;
   private _collapseFiles: boolean = true;
+  private _collapseRootFiles: boolean = true;
   private _collapseTemplates: boolean = true;
   private _content: string;
   private _title: string;
@@ -78,6 +79,10 @@ export class CookBookDetailsComponent {
     this._collapseFiles = !this._collapseFiles;
   }
 
+  public toggleRootFiles(){
+    this._collapseRootFiles = !this._collapseRootFiles;
+  }
+
   public toggleTemplates(){
     this._collapseTemplates = !this._collapseTemplates;
   }
@@ -89,6 +94,11 @@ export class CookBookDetailsComponent {
 
   public getFilesCollapseClass(){
     if(this._collapseFiles) return "collapse"
+    return "collapse.show"
+  }
+
+  public getRootFilesCollapseClass(){
+    if(this._collapseRootFiles) return "collapse"
     return "collapse.show"
   }
 
