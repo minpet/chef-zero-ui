@@ -17,7 +17,8 @@ export class AppComponent {
     this.links = [
       new MenuLink('About', '/about'),
       new MenuLink('Cookbooks', '/cookbooks'),
-      new MenuLink('Nodes', '/nodes')
+      new MenuLink('Nodes', '/nodes'),
+      new MenuLink('Roles', '/roles')
       ];
     this.versionDS.getVersion().subscribe(response => {
       this.version = response;

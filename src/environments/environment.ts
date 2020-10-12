@@ -9,7 +9,8 @@ export const environment = {
 
   restCookbooksListBaseURL: `https://${host}:8889/cookbooks`,
   restNodesListBaseURL: `https://${host}:8889/nodes`,
-  restVersionBaseURL: `https://${host}:8889/version`
+  restVersionBaseURL: `https://${host}:8889/version`,
+  restRolesListBaseURL: `https://${host}:8889/roles`
 };
 
 /*

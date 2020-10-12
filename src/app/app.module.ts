@@ -13,6 +13,10 @@ import { NodesModule } from './nodes/nodes.module';
 import { NodesListComponent } from './nodes/nodesList.component';
 import { NodeDetailsComponent } from './nodes/nodeDetails.component';
 
+import { RolesModule } from './roles/roles.module';
+import { RolesListComponent } from './roles/rolesList.component';
+import { RoleDetailsComponent } from './roles/roleDetails.component';
+
 import { VersionDataSource } from './version/version.datasource';
 
 import { AppComponent } from './app.component';
@@ -23,6 +27,8 @@ const routes = RouterModule.forRoot([
   {path: 'cookBookDetails/:cbName', component: CookBookDetailsComponent},
   {path: 'nodes', component: NodesListComponent},
   {path: 'nodeDetails/:nodeName', component: NodeDetailsComponent},
+  {path: 'roles', component: RolesListComponent},
+  {path: 'roleDetails/:roleName', component: RoleDetailsComponent},
   {path: '**', component: AboutComponent}
 ]);
 
@@ -35,7 +41,8 @@ const routes = RouterModule.forRoot([
     routes,
     AboutModule,
     CookBooksModule,
-    NodesModule
+    NodesModule,
+    RolesModule,
   ],
   providers: [VersionDataSource],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+<div class="text-center">
+ <div class="bg-secondary">Available Roles:</div>
+ <div class="row">
+  <div class="col">
+    <button *ngFor="let n of roles" class="btn btn-block" [routerLink]="['/roleDetails',n.name]">
+      {{ n.name }}
+    </button>
+  </div>
+ </div>
+</div>
